@@ -45,7 +45,7 @@ DB_USER=username
 DB_PASSWORD=password
 DB_NAME=database_name
 ```
-Replace the placeholder values (***`***your_jwt_secret_key`***, ***`username`***, ***`password`***, ***`database_name`***) with your actual configuration details.
+Replace the placeholder values (***`your_jwt_secret_key`***, ***`username`***, ***`password`***, ***`database_name`***) with your actual configuration details.
 
 ### Explanation of Environment Variables:
 - ***`PORT`***: Specifies the port number on which the server will run.
