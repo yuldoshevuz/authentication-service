@@ -25,13 +25,34 @@ This project provides an API for user authentication. It allows users to registe
 ## Installation
 Clone the repository:
 ```bash
-git clone https://github.com/your-username/authentication-service.git
+git clone https://github.com/yuldoshevuz/authentication-service.git
 cd authentication-service
 ```
 Install dependencies:
 ```bash
 npm install
 ```
+## Environment Variables
+
+Before running the application, make sure to create a `.env` file in the root directory and fill it with the following environment variables based on `.example.env`.
+
+```dotenv
+PORT=5001
+JWT_SECRET=your_jwt_secret_key
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=username
+DB_PASSWORD=password
+DB_NAME=database_name
+```
+Replace the placeholder values (***`***your_jwt_secret_key`***, ***`username`***, ***`password`***, ***`database_name`***) with your actual configuration details.
+
+### Explanation of Environment Variables:
+- ***`PORT`***: Specifies the port number on which the server will run.
+- ***`JWT_SECRET`***: Secret key used for JWT token generation and verification.
+- ***`DB_HOST`***, ***`DB_PORT`***, ***`DB_USER`***, ***`DB_PASSWORD`***, ***`DB_NAME`***: Database connection details (host, port, username, password, database name).
+
+Make sure these environment variables are correctly set before running the application.
 
 ## Usage
 Start the server:
@@ -52,8 +73,8 @@ npm test
 ## API Endpoints
 ### POST /register
 
-- *Description*: Register a new user
-- *Request Body:*
+- ***Description***: Register a new user
+- ***Request Body:***
 ```json
 {
   "fullName": "John Doe",
@@ -63,32 +84,8 @@ npm test
 ```
 - Response:
 
-    - *Status:* 201 Created
-    - *Body:*
-
-```json
-{
-  "ok": true,
-  "data": {
-    "id": "user-id",
-    "fullName": "John Doe",
-    "email": "johndoe@gmail.com"
-  }
-}
-```
-
-### POST /login
-*Description:* Login a user and return a JWT token
-*Request Body:*
-```json
-{
-  "email": "johndoe@gmail.com",
-  "password": "password123"
-}
-```
-- *Response:*
-    - *Status:* 200 OK
-    - *Body:*
+    - ***Status:*** 201 Created
+    - ***Body:***
 
 ```json
 {
@@ -97,17 +94,45 @@ npm test
     "id": 1,
     "fullName": "John Doe",
     "email": "johndoe@gmail.com",
-    "token": "your-jwt-token"
+    "createdAt": "`<created-time>`",
+    "updatedAt": "`<updated-time>`"`
+  }
+}
+```
+
+### POST /login
+***Description:*** Login a user and return a JWT token
+***Request Body:***
+```json
+{
+  "email": "johndoe@gmail.com",
+  "password": "password123"
+}
+```
+- ***Response:***
+    - ***Status:*** 200 OK
+    - ***Body:***
+
+```json
+{
+  "ok": true,
+  "data": {
+    "id": 1,
+    "fullName": "John Doe",
+    "email": "johndoe@gmail.com",
+    "token": "your-jwt-token",
+    "createdAt": "`<created-time>`",
+    "updatedAt": "`<updated-time>`"
   }
 }
 ```
 
 ### GET /protected
-- *Description:* Access a protected route
-- *Headers:* ``Authorization: Bearer <JWT token>``
-- *Response:*
-    - *Status:* 200 OK
-    - *Body:*
+- ***Description:*** Access a protected route
+- ***Headers:*** ``Authorization: Bearer <JWT token>``
+- ***Response:***
+    - ***Status:*** 200 OK
+    - ***Body:***
 
 ```json
 {
@@ -117,8 +142,8 @@ npm test
         "fullName": "John Doe",
         "email": "johndoe@gmail.com",
         "password": "password123",
-        "createdAt": `"<created-time>"`,
-        "updatedAt": `"<updated-time>"`
+        "createdAt": "`<created-time>`",
+        "updatedAt": "`<updated-time>`"
     }
 }
 ```
