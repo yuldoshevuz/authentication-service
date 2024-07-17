@@ -95,7 +95,7 @@ npm test
     "fullName": "John Doe",
     "email": "johndoe@gmail.com",
     "createdAt": "`<created-time>`",
-    "updatedAt": "`<updated-time>`"`
+    "updatedAt": "`<updated-time>`"
   }
 }
 ```
