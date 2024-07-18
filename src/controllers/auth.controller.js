@@ -9,7 +9,7 @@ class AuthController {
     async registerNewUser(req, res, next) {
         try {
             // Check all parametrs available or not
-            if (!authService.validateRequestParams(req)) {
+            if (!authService.validateRequestParams(req, "register")) {
                 return res.status(400).json({
                     ok: false,
                     message: "Please send all parameters"
@@ -51,7 +51,7 @@ class AuthController {
             const { email, password } = req.body;
 
             // Check all parametrs available or not
-            if (!authService.validateRequestParams(req)) {
+            if (!authService.validateRequestParams(req, "login")) {
                 return res.status(400).json({
                     ok: false,
                     message: "Please send all parameters"
