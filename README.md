@@ -1,6 +1,8 @@
 # Authentication Service
 
-This project is a simple authentication service implemented using Node.js, Express, and JWT. It includes unit tests written with Mocha and Chai.
+This project is a simple authentication service implemented using Node.js, Express, JWT, and PostgreSQL with Sequelize ORM. It includes unit tests written with Mocha and Chai.
+
+**Deployed Application:** The deployed application can be accessed at [Authentication Service](https://yuldoshev.uz/authentication-service).
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -34,7 +36,7 @@ npm install
 ```
 ## Environment Variables
 
-Before running the application, make sure to create a `.env` file in the root directory and fill it with the following environment variables based on `.example.env`.
+Before running the application, make sure to create a `.env` file in the root directory and fill it with the following environment variables based on `.example.env`
 
 ```dotenv
 PORT=5001
@@ -61,7 +63,7 @@ Start the server:
 npm start
 ```
 
-The server will run on port 5001 by default. You can access it at http://localhost:{PORT}.
+The server will run on the port specified in the environment variables or default to port 5000 if not specified. You can access it at http://localhost:{PORT}.
 
 ## Testing
 To run the tests, use the following command:
