@@ -50,6 +50,14 @@ class AuthController {
         try {
             const { email, password } = req.body;
 
+            // Check all parametrs available or not
+            if (!authService.validateRequestParams(req)) {
+                return res.status(400).json({
+                    ok: false,
+                    message: "Please send all parameters"
+                })
+            }
+
             // Check if the user exists
             const existingUser = await authService.checkExistingUser(email)
             if (!existingUser) {
