@@ -16,7 +16,7 @@ class AuthService {
     }
 
     // Middleware to check existing user
-    async checkExistingUser(email, next) {
+    async checkExistingUser(email) {
         const existingUser = await User.findOne({ where: { email } });
         return existingUser ? existingUser : null
     }
@@ -29,7 +29,7 @@ class AuthService {
         return hashedPassword
     }
 
-    async comparePassword(password, hashedPassword, next) {
+    async comparePassword(password, hashedPassword) {
         return await bcrypt.compare(password, hashedPassword)
     }
 
