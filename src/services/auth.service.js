@@ -5,10 +5,12 @@ import jwt from "jsonwebtoken"
 
 class AuthService {
     // Middleware to validate request body parameters
-    validateRequestParams(req) {
+    validateRequestParams(req, where = "register") {
         const { fullName, email, password } = req.body;
 
-        if (!fullName || !email || !password) {
+        if (where === "login" & !(email || password)) {
+            return false
+        } else if (where === "register" && !(fullName || email || password)) {
             return false
         }
 
