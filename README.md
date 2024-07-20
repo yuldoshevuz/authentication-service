@@ -173,6 +173,7 @@ authentication-service/
 │   │   ├── db.config.js
 │   │   └── environments.js
 │   ├── test/
+│   │   ├── register.test.js
 │   │   ├── login.test.js
 │   │   ├── protected.test.js
 │   │   └── index.js
